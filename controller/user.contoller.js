@@ -269,6 +269,8 @@ module.exports.addUser = async (req, res) => {
   try {
     const { firstName, lastName, email, mobile, DOB, role, address,password } = req.body;
     const imageName = req.file ? req.file.filename : null;
+      const saltRounds = 10;
+    const hashPassword = await bcrypt.hash(password, saltRounds);
     console.log(req.body); // All fields
     console.log(req.file);
     // const imageName = req.file.filename
@@ -284,7 +286,7 @@ module.exports.addUser = async (req, res) => {
       lastName: lastName,
       mobile: mobile,
       email: email,
-            password: password,
+            password: hashPassword,
 
       DOB: DOB,
       image: imageName,
