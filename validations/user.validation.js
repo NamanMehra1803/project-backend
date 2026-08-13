@@ -17,6 +17,8 @@ module.exports.userAddValidation = celebrate({
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
         email: Joi.string().required(),
+                password: Joi.string().required(),
+
         mobile: Joi.number().required(),
         DOB: Joi.string(),
         address: Joi.string().required(),
