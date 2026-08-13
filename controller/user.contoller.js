@@ -267,7 +267,7 @@ module.exports.userLogin = async (req, res) => {
 //adduser
 module.exports.addUser = async (req, res) => {
   try {
-    const { firstName, lastName, email, mobile, DOB, role, address } = req.body;
+    const { firstName, lastName, email, mobile, DOB, role, address,password } = req.body;
     const imageName = req.file ? req.file.filename : null;
     console.log(req.body); // All fields
     console.log(req.file);
@@ -284,6 +284,8 @@ module.exports.addUser = async (req, res) => {
       lastName: lastName,
       mobile: mobile,
       email: email,
+            password: password,
+
       DOB: DOB,
       image: imageName,
       role: role,
